@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 
 Hello world
 changed
 
 plesase change
+=======
+Hello world
+changed
+>>>>>>> parent of b7109b9... 3 changed
