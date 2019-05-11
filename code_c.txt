@@ -1,2 +1,5 @@
+<<<<<<< HEAD
 Hello world
 changed
+=======
+>>>>>>> parent of 6712a75... add to reponsitory
