@@ -60,6 +60,39 @@ void ThemCuoi(int a[SIZE], int &n, int x)
 	n++;
 }
 
+void ThemBatKi(int a[SIZE],int &n,int pos,int val)
+{
+	if(n<=0)
+	return;
+	if(pos<0)
+	pos=0;
+	if(pos > n)
+	pos=n;
+	for(int i=n;i>pos;i--)
+	{
+		a[i]=a[i-1];
+	}
+	a[pos]=val;
+	n++;
+
+}
+
+void XoaBatKi(int a[SIZE],int &n,int pos)
+{
+	if(n<=0)
+	return;
+	if(pos<0)
+	pos=0;
+	if(pos > n)
+	pos=n;
+	for(int i=pos;i<n-1;i++)
+	{
+		a[i]=a[i+1];
+	}
+	n--;
+}
+
+
 void main()
 {
 	int a[SIZE], n = 0;
@@ -74,5 +107,9 @@ void main()
 	XuatMang(a, n);
 	ThemCuoi(a, n, 8);
 	XuatMang(a, n);
+	ThemBatKi(a,n,pos,val);
+	XuatMang(a,n);
+	XoaBatKi(a,n,pos);
+	XuatMang(a,n);
 	_getch();
 }
