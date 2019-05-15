@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string>	
+#include <time.h>
+#define SIZE 100
+
+void NhapPhanTu(int &n)
+{
+	printf("Nhap Phan Tu:\n");
+	scanf("%d", &n);
+}
+
+void NhapMang(int a[SIZE][SIZE], int &n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			a[i][j] = rand() % 20 + 1;
+		}
+	}
+		
+}
+
+	
+void XuatMang(int a[SIZE][SIZE], int n)
+{
+	printf("Mang 2 chieu:\n");
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			printf("%d\t", a[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+
+void SoLonT2(int a[SIZE][SIZE], int n)
+{
+	int max = a[0][0];
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (a[i][j]>max)
+			{
+				max = a[i][j];
+			}
+		}
+	}
+	int max2 = a[0][0];
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (a[i][j] < max && a[i][j]>max2)
+			{
+				max2 = a[i][j];
+			}
+		}
+	}
+	printf("so lon t1 la:%d\n", max);
+	printf("so lon t2 la:%d\n", max2);
+}
+
+void main()
+{
+	srand(unsigned int(time(NULL)));
+	int a[SIZE][SIZE], n = 0;
+	NhapPhanTu(n);
+	NhapMang(a, n);
+	XuatMang(a, n);
+	SoLonT2(a, n);
+	_getch();
+}
