@@ -1,0 +1,265 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string>	
+#include <time.h>
+#define SIZE 100
+
+void NhapPhanTu(int &n)
+{
+	printf("Nhap Phan Tu:\n");
+	scanf("%d", &n);
+}
+
+void NhapMang(int a[SIZE][SIZE], int &n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			a[i][j] = rand() % 20 + 1;
+		}
+	}
+
+}
+
+
+void XuatMang(int a[SIZE][SIZE], int n)
+{
+	printf("Mang 2 chieu:\n");
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			printf("%d\t", a[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+int SoNT(int &n)
+{
+	if (n == 2)return 1;
+	if (n < 2 || n % 2 == 0)return 0;
+	for (int i = 2; i < n; i++)
+	{
+		if (n%i == 0)
+			return 0;
+	}
+	return 1;
+}
+
+void KTSONT(int a[SIZE][SIZE], int n)
+{
+	printf("So Nguyen To:\n");
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (SoNT(a[i][j]) == 1)
+			{
+				printf("%d\t", a[i][j]);
+			}
+		}
+	}
+}
+
+
+
+void SoNTDCP(int a[SIZE][SIZE], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (i + j == n - 1)
+			{
+				if (SoNT(a[i][j]) == 1)
+				{
+					printf("%d\t", a[i][j]);
+				}
+			}
+			else
+			{
+				printf("\t");
+			}
+		}
+		printf("\n");
+	}
+}
+
+void InDCC(int a[SIZE][SIZE], int n)
+{
+	printf("In Duong Cheo Chinh:\n");
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (a[i] == a[j])
+			{
+				printf("%d\t", a[i][j]);
+			}
+			else
+			{
+				printf("\t");
+			}
+		}
+		printf("\n");
+	}
+}
+
+void TimSoNTDCC(int a[SIZE][SIZE], int n)
+{
+	printf("so nt tren duong cheo chinh:\n");
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (a[i] == a[j])
+			{
+				if (SoNT(a[i][j]) == 1)
+				{
+					printf("%d\t", a[i][j]);
+				}
+			}
+			else
+			{
+				printf("\t");
+			}
+		}
+		printf("\n");
+	}
+}
+
+void InhangDau(int a[SIZE][SIZE], int n)
+{
+	printf("Hang Dau:\n");
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (i == 0)
+				printf("%d\t", a[0][j]);
+			else
+			{
+				printf("\t");
+			}
+		}
+		printf("\n");
+	}
+}
+
+void CotDau(int a[SIZE][SIZE], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (j == 0)
+			{
+				printf("%d\t", a[i][0]);
+			}
+			else
+			{
+				printf("\t");
+			}
+		}
+		printf("\n");
+	}
+}
+
+void CotCuoi(int a[SIZE][SIZE], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (j == n - 1)
+			{
+				printf("%d\t", a[i][n - 1]);
+			}
+			else
+			{
+				printf("\t");
+			}
+		}
+		printf("\n");
+	}
+}
+
+void DongCuoi(int a[SIZE][SIZE], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (i == n - 1)
+			{
+				printf("%d\t", a[n - 1][j]);
+			}
+			else
+			{
+				printf("\t");
+			}
+		}
+		printf("\n");
+	}
+}
+
+void InBien(int a[SIZE][SIZE], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (i == 0 || i == n - 1 || j == 0 || j == n - 1)
+			{
+				printf("%d\t", a[i][j]);
+			}
+			else
+			{
+				printf("\t");
+			}
+		}
+		printf("\n");
+	}
+}
+
+void InCot2(int a[SIZE][SIZE], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (j == 1)
+			{
+				printf("%d\t", a[i][1]);
+			}
+			else
+			{
+				printf("\t");
+			}
+
+		}
+		printf("\n");
+	}
+}
+void main()
+{
+	srand(unsigned int(time(NULL)));
+	int a[SIZE][SIZE], n = 0;
+	NhapPhanTu(n);
+	NhapMang(a, n);
+	XuatMang(a, n);
+	/*KTSONT(a, n);*/
+	SoNTDCP(a, n);
+	InDCC(a, n);
+	TimSoNTDCC(a, n);
+	InhangDau(a, n);
+	CotDau(a, n);
+	CotCuoi(a, n);
+	DongCuoi(a, n);
+	InBien(a, n);
+	InCot2(a, n);
+	_getch();
+}
